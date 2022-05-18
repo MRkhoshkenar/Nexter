@@ -3,6 +3,7 @@
 const nav = document.querySelector(".navigation__nav");
 const navLink = document.querySelector(".navigation__nav__link");
 const navBtn = document.querySelector(".navigation__btn");
+const allLinks = document.querySelectorAll(".navigation__nav__link");
 
 navBtn.addEventListener("click", function () {
   navBtn.classList.toggle("navigation__btn--open");
@@ -10,12 +11,13 @@ navBtn.addEventListener("click", function () {
   nav.classList.toggle("navigation__open");
 });
 
-const allLinks = document.querySelectorAll(".navigation__nav__link");
-
 allLinks.forEach(function (link) {
   link.addEventListener("click", function (e) {
     e.preventDefault();
     const href = link.getAttribute("href");
+    nav.classList.remove("navigation__open");
+    navBtn.classList.toggle("navigation__btn--open");
+    navBtn.classList.toggle("navigation__btn--close");
 
     // Scroll back to top
     if (href === "#")
