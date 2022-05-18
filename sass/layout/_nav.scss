@@ -1,0 +1,110 @@
+.navigation {
+  &__nav {
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.5s ease-in;
+    transform: translateX(-100%);
+    font-weight: 600;
+    list-style: none;
+    z-index: 1000;
+    font-size: 3.6rem;
+    background-color: $color-secondary;
+    opacity: 0;
+    transition: all 1s;
+    @include respond(tab-land) {
+      transform: translateX(100%);
+    }
+
+    &__link {
+      &:link,
+      &:visited {
+        text-decoration: none;
+        color: $color-primary-dark;
+        padding: 1rem 3rem;
+        transition: all 0.3s;
+      }
+
+      &:hover,
+      &:active {
+        background-color: rgba(#fff, 0.05);
+      }
+    }
+  }
+
+  &__btn--open {
+    background-color: $color-primary;
+    position: absolute;
+    top: 5.5rem;
+    left: 3rem;
+    height: 2px;
+    width: 5rem;
+    z-index: 300;
+    cursor: pointer;
+
+    @include respond(tab-land) {
+      top: 5.5rem;
+      right: 3rem;
+      left: auto;
+    }
+
+    &::after {
+      content: "";
+      display: block;
+      background-color: $color-primary;
+      height: 2px;
+      width: 5rem;
+      transform: translateY(1rem);
+    }
+
+    &::before {
+      content: "";
+      display: block;
+      background-color: $color-primary;
+      height: 2px;
+      width: 5rem;
+      transform: translateY(-1.3rem);
+    }
+  }
+
+  &__btn--close {
+    position: absolute;
+    z-index: 9000;
+    background-color: $color-primary;
+    top: 5.5rem;
+    left: 3rem;
+    cursor: pointer;
+    height: 3px;
+    width: 5rem;
+    transform: rotate(45deg);
+
+    @include respond(tab-land) {
+      top: 5.5rem;
+      right: 3rem;
+      left: auto;
+    }
+    &::after {
+      content: "";
+      display: block;
+      background-color: $color-primary;
+      height: 3px;
+      width: 5rem;
+      // transform: translateY(1rem);
+      transform: rotate(-90deg);
+    }
+  }
+
+  &__open {
+    transform: translate(0);
+    opacity: 1;
+  }
+}
+
+.hidden {
+  display: none;
+}

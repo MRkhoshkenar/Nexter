@@ -1,0 +1,82 @@
+.header {
+  background-image: linear-gradient(
+      rgba($color-secondary, 0.93),
+      rgba($color-secondary, 0.93)
+    ),
+    url(../img/hero.jpeg);
+  background-size: cover;
+  background-position: center;
+  padding: 8rem;
+  padding-top: 4rem;
+
+  display: grid;
+  grid-template-rows: max-content max-content;
+  grid-template-columns: max-content;
+  row-gap: 10rem;
+  justify-content: center;
+  position: relative;
+
+  @include respond(tab-port) {
+    row-gap: 30rem;
+  }
+
+  @include respond(phone) {
+    grid-template-columns: 1fr max-content 1fr;
+    row-gap: 30rem;
+  }
+
+  &__logo {
+    height: 4rem;
+    justify-self: center;
+    grid-column: 1/-1;
+  }
+
+  &__content {
+    @include respond(phone) {
+      grid-column: 1/-1;
+    }
+    grid-row: 2/-1;
+    display: grid;
+    grid-template-rows: min-content repeat(3, 1fr) min-content;
+    row-gap: 2rem;
+  }
+
+  &__btn {
+    justify-self: start;
+    align-self: start;
+    margin-bottom: 1.5rem;
+  }
+
+  &__seenon-text {
+    font-size: 1.6rem;
+    color: $color-grey-light-2;
+    font-family: $font-primary;
+    align-self: end;
+
+    display: grid;
+    grid-template-columns: 1fr max-content 1fr;
+    align-items: center;
+    column-gap: 1.5rem;
+
+    &::before,
+    &::after {
+      content: "";
+      display: block;
+      height: 1px;
+      background-color: currentColor;
+    }
+  }
+
+  &__seenon-logos {
+    align-self: end;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: 3rem;
+    justify-items: center;
+    img {
+      max-height: 2.5rem;
+      max-width: 100%;
+      filter: brightness(70%);
+    }
+  }
+}

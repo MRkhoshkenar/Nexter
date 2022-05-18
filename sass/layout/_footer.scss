@@ -1,0 +1,56 @@
+.footer {
+  background-color: $color-secondary;
+  padding: 8rem;
+
+  &__nav {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+    gap: 2rem;
+    align-items: center;
+    @include respond(tab-land) {
+      grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+    }
+
+    &__item {
+      align-items: center;
+      justify-content: center;
+      &__link {
+        &:link,
+        &:visited {
+          font-size: 1.4rem;
+          color: #fff;
+          font-weight: 400;
+          font-family: $font-display;
+          text-transform: uppercase;
+          text-decoration: none;
+          text-align: center;
+          padding: 1.5rem;
+          display: block;
+          transition: all 0.2s;
+        }
+
+        &:hover,
+        &:active {
+          background-color: rgba(255, 255, 255, 0.05);
+          transform: translateY(-3px);
+        }
+      }
+    }
+  }
+}
+
+.copyright {
+  font-size: 1.4rem;
+  text-align: center;
+  color: $color-grey-light-2;
+  margin: 6rem auto 0 auto;
+  width: 70%;
+  @include respond(tab-land) {
+    width: 85%;
+  }
+  @include respond(phone) {
+    width: 100%;
+    margin-top: 2rem;
+  }
+}

@@ -1,0 +1,59 @@
+.btn {
+  background-color: $color-primary;
+  color: $color-grey-light-1;
+  padding: 1.8rem 3rem;
+  border: 0;
+  border-radius: 0;
+
+  font-family: $font-display;
+  font-size: 1.5rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  transition: all 0.3s;
+
+  &:hover {
+    background-color: $color-primary-dark;
+  }
+}
+
+.header__nav__btn {
+  border: none;
+  border-radius: 0;
+  height: 2px;
+  width: 4.5rem;
+  background-color: $color-primary;
+  // margin-top: 4rem;
+  cursor: pointer;
+
+  @include respond(tab-port) {
+    align-self: center;
+    margin-top: 0;
+    margin-right: 2.5rem;
+  }
+
+  &::after,
+  &::before {
+    content: "";
+    display: block;
+    height: 2px;
+    width: 4.5rem;
+    background-color: $color-primary;
+    cursor: pointer;
+  }
+
+  &::before {
+    transform: translateY(-1.5rem);
+
+    @include respond(tab-port) {
+      transform: translateY(-1.2rem);
+    }
+  }
+
+  &::after {
+    transform: translateY(1.3rem);
+
+    @include respond(tab-port) {
+      transform: translateY(1rem);
+    }
+  }
+}
